@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matrículas | Sistema Acadêmico</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="matriculas">
+
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">🎓</div>
+        <span>Sistema Acadêmico</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html" data-page="dashboard">Dashboard</a>
+        <a href="alunos.html" data-page="alunos">Alunos</a>
+        <a href="cursos.html" data-page="cursos">Cursos</a>
+        <a href="matriculas.html" data-page="matriculas">Matrículas</a>
+        <a href="usuarios.html" data-page="usuarios">Usuários</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <h1 class="page-title">Matrículas</h1>
+    <p class="page-subtitle">Gerenciamento de matrículas de alunos em cursos</p>
+
+    <div id="alerta" class="alert"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Lista de Matrículas</h2>
+        <div class="toolbar">
+          <button class="btn btn-primary" id="btn-nova-matricula">+ Nova Matrícula</button>
+        </div>
+      </div>
+
+      <div class="toolbar" style="margin-bottom: 1.25rem;">
+        <div class="search-box">
+          <input type="text" id="busca-matricula" placeholder="Buscar por aluno ou curso...">
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Aluno</th>
+              <th>Curso</th>
+              <th>Semestre</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-matriculas">
+            <!-- Preenchido via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Sistema de Gerenciamento Acadêmico &mdash; Programação Web I &mdash; 2026
+  </footer>
+
+  <!-- Modal Matrícula -->
+  <div class="modal-overlay" id="modal-matricula">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-matricula-titulo">Nova Matrícula</h3>
+        <button class="modal-close" data-close="modal-matricula">&times;</button>
+      </div>
+      <form id="form-matricula">
+        <div class="modal-body">
+          <input type="hidden" id="matricula-id">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="matricula-aluno">Aluno *</label>
+              <select id="matricula-aluno" required>
+                <option value="">Selecione o aluno</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="matricula-curso">Curso *</label>
+              <select id="matricula-curso" required>
+                <option value="">Selecione o curso</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="matricula-semestre">Semestre *</label>
+              <input type="text" id="matricula-semestre" required placeholder="Ex: 2026/1" value="2026/1">
+            </div>
+            <div class="form-group">
+              <label for="matricula-status">Status</label>
+              <select id="matricula-status">
+                <option value="ativa">Ativa</option>
+                <option value="cancelada">Cancelada</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close="modal-matricula">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

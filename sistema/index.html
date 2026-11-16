@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Sistema Acadêmico</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard">
+
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">🎓</div>
+        <span>Sistema Acadêmico</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html" data-page="dashboard">Dashboard</a>
+        <a href="alunos.html" data-page="alunos">Alunos</a>
+        <a href="cursos.html" data-page="cursos">Cursos</a>
+        <a href="matriculas.html" data-page="matriculas">Matrículas</a>
+        <a href="usuarios.html" data-page="usuarios">Usuários</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <h1 class="page-title" id="titulo-sistema">Sistema de Gerenciamento Acadêmico</h1>
+    <p class="page-subtitle">Visão geral do sistema — dados persistidos com LocalStorage</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-label">Alunos</div>
+            <div class="card-value" id="total-alunos">0</div>
+            <div class="card-sub" id="alunos-ativos">0 ativos</div>
+          </div>
+          <div class="card-icon blue">👨‍🎓</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-label">Cursos</div>
+            <div class="card-value" id="total-cursos">0</div>
+            <div class="card-sub" id="cursos-ativos">0 ativos</div>
+          </div>
+          <div class="card-icon green">📚</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-label">Matrículas</div>
+            <div class="card-value" id="total-matriculas">0</div>
+            <div class="card-sub" id="matriculas-ativas">0 ativas</div>
+          </div>
+          <div class="card-icon orange">📝</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-label">Usuários</div>
+            <div class="card-value" id="total-usuarios">0</div>
+            <div class="card-sub" id="usuarios-ativos">0 ativos</div>
+          </div>
+          <div class="card-icon purple">👤</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Acesso Rápido</h2>
+      </div>
+      <div class="toolbar">
+        <a href="alunos.html" class="btn btn-primary">👨‍🎓 Gerenciar Alunos</a>
+        <a href="cursos.html" class="btn btn-outline">📚 Gerenciar Cursos</a>
+        <a href="matriculas.html" class="btn btn-outline">📝 Gerenciar Matrículas</a>
+        <a href="usuarios.html" class="btn btn-outline">👤 Gerenciar Usuários</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Sobre o Projeto</h2>
+      </div>
+      <p style="color: var(--gray-600); font-size: 0.95rem; line-height: 1.7;">
+        Este sistema foi desenvolvido como <strong>Projeto Integrador</strong> da disciplina
+        <strong>Programação Web I</strong>. Ele evolui progressivamente:
+      </p>
+      <ul style="margin: 1rem 0 0 1.25rem; color: var(--gray-600); font-size: 0.95rem; line-height: 1.8;">
+        <li><strong>Aula 09</strong> — Fundamentos de JavaScript ES6+ (console)</li>
+        <li><strong>Aula 10</strong> — DOM, eventos e manipulação de interface</li>
+        <li><strong>Aula 11</strong> — Persistência com JSON e LocalStorage</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Sistema de Gerenciamento Acadêmico &mdash; Programação Web I &mdash; 2026
+  </footer>
+
+  <script src="js/dados.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

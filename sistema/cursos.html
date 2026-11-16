@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursos | Sistema Acadêmico</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cursos">
+
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">🎓</div>
+        <span>Sistema Acadêmico</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html" data-page="dashboard">Dashboard</a>
+        <a href="alunos.html" data-page="alunos">Alunos</a>
+        <a href="cursos.html" data-page="cursos">Cursos</a>
+        <a href="matriculas.html" data-page="matriculas">Matrículas</a>
+        <a href="usuarios.html" data-page="usuarios">Usuários</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <h1 class="page-title">Cursos</h1>
+    <p class="page-subtitle">Gerenciamento de cursos do sistema</p>
+
+    <div id="alerta" class="alert"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Lista de Cursos</h2>
+        <div class="toolbar">
+          <button class="btn btn-primary" id="btn-novo-curso">+ Novo Curso</button>
+        </div>
+      </div>
+
+      <div class="toolbar" style="margin-bottom: 1.25rem;">
+        <div class="search-box">
+          <input type="text" id="busca-curso" placeholder="Buscar por nome ou código...">
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Nome</th>
+              <th>Carga Horária</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-cursos">
+            <!-- Preenchido via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Sistema de Gerenciamento Acadêmico &mdash; Programação Web I &mdash; 2026
+  </footer>
+
+  <!-- Modal Curso -->
+  <div class="modal-overlay" id="modal-curso">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-curso-titulo">Novo Curso</h3>
+        <button class="modal-close" data-close="modal-curso">&times;</button>
+      </div>
+      <form id="form-curso">
+        <div class="modal-body">
+          <input type="hidden" id="curso-id">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="curso-nome">Nome do curso *</label>
+              <input type="text" id="curso-nome" required placeholder="Ex: Análise e Desenvolvimento de Sistemas">
+            </div>
+            <div class="form-group">
+              <label for="curso-codigo">Código *</label>
+              <input type="text" id="curso-codigo" required placeholder="Ex: ADS" maxlength="10">
+            </div>
+            <div class="form-group">
+              <label for="curso-carga">Carga Horária (horas) *</label>
+              <input type="number" id="curso-carga" required min="1" placeholder="Ex: 2000">
+            </div>
+            <div class="form-group">
+              <label for="curso-status">Status</label>
+              <select id="curso-status">
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+              </select>
+            </div>
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="curso-descricao">Descrição</label>
+              <textarea id="curso-descricao" rows="3" placeholder="Descrição do curso..."></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close="modal-curso">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

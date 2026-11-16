@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alunos | Sistema Acadêmico</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="alunos">
+
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">🎓</div>
+        <span>Sistema Acadêmico</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html" data-page="dashboard">Dashboard</a>
+        <a href="alunos.html" data-page="alunos">Alunos</a>
+        <a href="cursos.html" data-page="cursos">Cursos</a>
+        <a href="matriculas.html" data-page="matriculas">Matrículas</a>
+        <a href="usuarios.html" data-page="usuarios">Usuários</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <h1 class="page-title">Alunos</h1>
+    <p class="page-subtitle">Cadastro, listagem, busca, filtro e persistência</p>
+
+    <div id="alerta" class="alert"></div>
+
+    <div class="section">
+      <div class="section-header">
+        <h2 class="section-title">Lista de Alunos</h2>
+        <div class="toolbar">
+          <button class="btn btn-primary" id="btn-novo-aluno">+ Novo Aluno</button>
+          <button class="btn btn-outline" id="btn-restaurar" title="Restaurar dados iniciais">↺ Restaurar</button>
+        </div>
+      </div>
+
+      <div class="toolbar" style="margin-bottom: 1.25rem;">
+        <div class="search-box">
+          <input type="text" id="busca-aluno" placeholder="Buscar por nome ou e-mail...">
+        </div>
+        <select class="filter-select" id="filtro-status">
+          <option value="">Todos os status</option>
+          <option value="ativo">Ativo</option>
+          <option value="inativo">Inativo</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Curso</th>
+              <th>Status</th>
+              <th>Cadastro</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista-alunos">
+            <!-- Preenchido via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    Sistema de Gerenciamento Acadêmico &mdash; Programação Web I &mdash; 2026
+  </footer>
+
+  <!-- Modal Cadastro/Edição de Aluno -->
+  <div class="modal-overlay" id="modal-aluno">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-aluno-titulo">Novo Aluno</h3>
+        <button class="modal-close" data-close="modal-aluno">&times;</button>
+      </div>
+      <form id="form-aluno">
+        <div class="modal-body">
+          <input type="hidden" id="aluno-id">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="aluno-nome">Nome completo *</label>
+              <input type="text" id="aluno-nome" required placeholder="Ex: Ana Souza">
+            </div>
+            <div class="form-group">
+              <label for="aluno-email">E-mail *</label>
+              <input type="email" id="aluno-email" required placeholder="Ex: ana@email.com">
+            </div>
+            <div class="form-group">
+              <label for="aluno-telefone">Telefone</label>
+              <input type="text" id="aluno-telefone" placeholder="Ex: (65) 99999-0000">
+            </div>
+            <div class="form-group">
+              <label for="aluno-curso">Curso *</label>
+              <select id="aluno-curso" required>
+                <option value="">Selecione o curso</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="aluno-status">Status</label>
+              <select id="aluno-status">
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close="modal-aluno">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Detalhes -->
+  <div class="modal-overlay" id="modal-detalhes">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Detalhes do Aluno</h3>
+        <button class="modal-close" data-close="modal-detalhes">&times;</button>
+      </div>
+      <div class="modal-body" id="detalhes-aluno-body">
+        <!-- Preenchido via JavaScript -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" data-close="modal-detalhes">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dados.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
